@@ -1,0 +1,101 @@
+.color-formats-section {
+  padding: 5rem 0;
+  background: #ffffff;
+  position: relative;
+}
+
+.formats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.format-card {
+  background: #ffffff;
+  padding: 2.5rem;
+  border-radius: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  position: relative;
+  overflow: hidden;
+}
+
+.format-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--gradient-1);
+  transform: scaleY(0);
+  transition: transform 0.4s ease;
+}
+
+.format-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--primary-color);
+  box-shadow: 0 15px 40px rgba(99, 102, 241, 0.2);
+}
+
+.format-card:hover::before {
+  transform: scaleY(1);
+}
+
+.format-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.format-description {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+}
+
+.format-example,
+.format-usage {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: var(--bg-dark);
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.example-label,
+.usage-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.example-code,
+.usage-code {
+  display: block;
+  font-family: 'Fira Code', monospace;
+  font-size: 1rem;
+  color: var(--primary-color);
+  font-weight: 600;
+  word-break: break-all;
+}
+
+@media (max-width: 768px) {
+  .color-formats-section {
+    padding: 4rem 0;
+  }
+
+  .formats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .format-card {
+    padding: 2rem;
+  }
+}
